@@ -4,14 +4,15 @@ protospace
 Overview
 TanakaMana / protospace - Tool that can post - introduce the original application to simple.
 
-#Database
+# Database
 
-##users
-**association**
-*has_many posts
-*has_many comments
+## users  
+**association**  
+* has_many posts  
+* has_many comments  
 
-    |**column**|**type**|
+    |column|type|
+    |:-------|:-------|
     |id|integer|
     |name|string|
     |image|text|
@@ -21,44 +22,49 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |profile|text|
     |work|string|
 
-##posts
-**association**
-*has_many post_images
-*has_many comments
-*has_many likes
-*belongs_to user
+## posts  
+**association**  
+* has_many post_images  
+* has_many comments  
+* has_many likes  
+* belongs_to user  
 
-    |**column**|**type**|
+    |column|type|
+    |:-------|:-------|
     |id|integer|
     |user_id|references|
     |title|string|
     |catchcopy|string|
     |concept|text|
 
-##post_images
-**association**
-*belongs_to post
+## post_images  
+**association**  
+* belongs_to post  
 
+    |column|type|
+    |:-------|:-------|
     |id|integer|
     |post_id|references|
     |image|text|
 
-##comments
-**association**
-*belongs_to user
-*belongs_to post
+## comments  
+**association**  
+* belongs_to user  
+* belongs_to post  
 
-    |**column**|**type**|
+    |column|type|
+    |:-------|:-------|
     |id|integer|
     |user_id|references|
     |post_id|references|
     |comment|text|
 
-##likes
-*belongs_to user
-*belongs_to post
+## likes  
+* belongs_to user  
+* belongs_to post  
 
-    |**column**|**type**|
+    |column|type|
+    |:-------|:-------|
     |id|integer|
     |user_id|references|
     |post_id|references|
