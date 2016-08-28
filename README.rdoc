@@ -1,28 +1,64 @@
 == README
+protospace
+====
+Overview
+TanakaMana / protospace - Tool that can post - introduce the original application to simple.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Database
 
-Things you may want to cover:
+##users
+**association**
+*has_many posts
+*has_many comments
 
-* Ruby version
+    |**column**|**type**|
+    |id|integer|
+    |name|string|
+    |image|text|
+    |email|string|
+    |password|string|
+    |member|string|
+    |profile|text|
+    |work|string|
 
-* System dependencies
+##posts
+**association**
+*has_many post_images
+*has_many comments
+*has_many likes
+*belongs_to user
 
-* Configuration
+    |**column**|**type**|
+    |id|integer|
+    |user_id|references|
+    |title|string|
+    |catchcopy|string|
+    |concept|text|
 
-* Database creation
+##post_images
+**association**
+*belongs_to post
 
-* Database initialization
+    |id|integer|
+    |post_id|references|
+    |image|text|
 
-* How to run the test suite
+##comments
+**association**
+*belongs_to user
+*belongs_to post
 
-* Services (job queues, cache servers, search engines, etc.)
+    |**column**|**type**|
+    |id|integer|
+    |user_id|references|
+    |post_id|references|
+    |comment|text|
 
-* Deployment instructions
+##likes
+*belongs_to user
+*belongs_to post
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    |**column**|**type**|
+    |id|integer|
+    |user_id|references|
+    |post_id|references|
