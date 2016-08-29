@@ -4,9 +4,9 @@ protospace
 Overview
 TanakaMana / protospace - Tool that can post - introduce the original application to simple.
 
-== Database
+# Database
 
-=== users  
+## users  
 *association*  
 * has_many posts  
 * has_many comments  
@@ -22,8 +22,9 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |member|string|
     |profile|text|
     |work|string|
+    |time|timestamp|
 
-=== posts  
+## posts  
 *association*  
 * has_many post_images  
 * has_many comments  
@@ -38,8 +39,9 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |title|string|
     |catchcopy|string|
     |concept|text|
+    |time|timestamp|
 
-=== post_images  
+## post_images  
 *association*  
 * belongs_to post  
 
@@ -49,8 +51,9 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |id|integer|
     |post_id|references|
     |image|text|
+    |class|text|
 
-=== comments  
+## comments  
 *association*  
 * belongs_to user  
 * belongs_to post  
@@ -63,7 +66,7 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |post_id|references|
     |comment|text|
 
-=== likes  
+## likes  
 *association*  
 * belongs_to user  
 * belongs_to post  
