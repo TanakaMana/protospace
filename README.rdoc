@@ -8,7 +8,7 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
 
 ## users  
 *association*  
-* has_many posts  
+* has_many prototypes  
 * has_many comments  
 
 
@@ -23,9 +23,9 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |profile|text|
     |work|string|
 
-## posts  
+## prototypes  
 *association*  
-* has_many post_images  
+* has_many prototype_thumbnails  
 * has_many comments  
 * has_many likes  
 * belongs_to user  
@@ -39,39 +39,39 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |catchcopy|string|
     |concept|text|
 
-## post_images  
+## prototype_thumbnails  
 *association*  
-* belongs_to post  
+* belongs_to prototype  
 
 
     |column  |type  |
     |:-------|:-------|
     |id|integer|
-    |post_id|references|
-    |photo|text|
-    |class|int|
+    |prototype_id|references|
+    |view|text|
+    |class|integer|
 
 ## comments  
 *association*  
 * belongs_to user  
-* belongs_to post  
+* belongs_to prototype  
 
 
     |column  |type  |
     |:-------|:-------|
     |id|integer|
     |user_id|references|
-    |post_id|references|
+    |prototype_id|references|
     |content|text|
 
 ## likes  
 *association*  
 * belongs_to user  
-* belongs_to post  
+* belongs_to prototype  
 
 
     |column  |type  |
     |:-------|:-------|
     |id|integer|
     |user_id|references|
-    |post_id|references|
+    |prototype_id|references|
