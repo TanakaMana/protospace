@@ -22,7 +22,6 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |member|string|
     |profile|text|
     |work|string|
-    |time|timestamp|
 
 ## posts  
 *association*  
@@ -39,7 +38,6 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |title|string|
     |catchcopy|string|
     |concept|text|
-    |time|timestamp|
 
 ## post_images  
 *association*  
@@ -50,8 +48,8 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |:-------|:-------|
     |id|integer|
     |post_id|references|
-    |image|text|
-    |class|text|
+    |photo|text|
+    |class|int|
 
 ## comments  
 *association*  
@@ -64,7 +62,7 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |id|integer|
     |user_id|references|
     |post_id|references|
-    |comment|text|
+    |content|text|
 
 ## likes  
 *association*  
