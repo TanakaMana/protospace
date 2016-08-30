@@ -48,8 +48,8 @@ TanakaMana / protospace - Tool that can post - introduce the original applicatio
     |:-------|:-------|
     |id|integer|
     |prototype_id|references|
-    |view|text|
-    |class|integer|
+    |image|text|
+    |state|integer|
 
 ## comments  
 *association*  
