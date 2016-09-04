@@ -21,4 +21,16 @@ ActiveRecord::Schema.define(version: 20160904072747) do
     t.datetime "updated_at"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.text     "image",      limit: 65535
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.string   "member",     limit: 255
+    t.text     "profile",    limit: 65535
+    t.string   "work",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
