@@ -21,10 +21,10 @@
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: "#"} Profile Edit
+              = link_to "Profile Edit", '#'
+
             %li
-              %a{href: "#"} Logout
+              = link_to "Logout", "/users/sign_out", method: :delete
         %li
           .btn.btn-primary.navbar-btn
-            %a{href: "/proto/new"}
-              New Proto
+          = link_to "New Proto", "/proto/new",  method: :get
