@@ -1,11 +1,25 @@
 class UsersController < ApplicationController
+
+before_action :set_user, only: [:show, :edit, :update]
+before_action :authenticate_user!, only: [:edit, :update]
+
   def show
-    user = User.find(params[:id])
-    @name = current_user.name
-    @image = current_user.image
-    @member = current_user.member
-    @profile = current_user.profile
-    @work = current_user.work
-    @prototypes = Prototype.where(:user_id, :created_at)
+  end
+
+  def edit
+  end
+
+  def update
+    @user.update(update_params)
+    redirect_to root_path
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def update_params
+    params.require(:user).permit(:name, :image, :email, :member, :profile, :work)
   end
 end
