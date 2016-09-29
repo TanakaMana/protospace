@@ -21,6 +21,13 @@ before_action :authenticate_user!, only: [:edit, :update]
   end
 
   def update_params
-    params.require(:user).permit(:name, :image, :email, :member, :profile, :work)
+    params.require(:user).permit(
+      :name,
+      :image,
+      :email,
+      :member,
+      :profile,
+      :work
+    )
   end
 end
