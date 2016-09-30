@@ -10,8 +10,11 @@ before_action :authenticate_user!, only: [:edit, :update]
   end
 
   def update
-    @user.update(update_params)
-    redirect_to root_path
+    if @user.update(update_params)
+      redirect_to root_path, notice: "Your edit successfuly."
+    else
+      redirect_to edit_user_path, alert: "Your edit infomation is not enough"
+    end
   end
 
   private
