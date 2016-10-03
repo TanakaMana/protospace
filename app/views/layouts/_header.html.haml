@@ -23,7 +23,7 @@
                 = link_to 'Logout', destroy_user_session_path, method: :delete
           %li
             .btn.btn-primary.navbar-btn
-              = link_to 'New Proto', new_prototype_path
+              = link_to 'New Proto', new_prototype_path(current_user)
           //not login
       -else
         %ul.nav.navbar-nav.navbar-right
