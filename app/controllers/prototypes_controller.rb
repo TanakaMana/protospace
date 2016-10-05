@@ -1,7 +1,5 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index]
-  # before_action :set_prototype, only: [:update]
-
 
   def index
     @prototypes = Prototype.all
