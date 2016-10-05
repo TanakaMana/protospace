@@ -8,6 +8,7 @@
         .col-md-12
           .cover-image-upload
             = f.file_field value: "image"
+            = f.hidden_field :state, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
             - 3.times do
@@ -15,6 +16,7 @@
                 .image-upload
                   = f.fields_for :prototype_thumbnails do |thumbnail|
                     = thumbnail.file_field :image
+                    = thumbnail.hidden_field :state, value: "sub"
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: "Catch Copy"
