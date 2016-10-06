@@ -5,18 +5,18 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.all
   end
 
-  def create
+  def new
+    @prototype = Prototype.new
+    3.times { @prototype.prototype_thumbnails.build }
+  end
+
+def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
       redirect_to root_path, notice: 'Your post prototype successfuly.'
     else
       redirect_to new_prototype_path, alert: 'Your post prototype infomation is not enough'
     end
-  end
-
-  def new
-    @prototype = Prototype.new
-    3.times { @prototype.prototype_thumbnails.build }
   end
 
   private
