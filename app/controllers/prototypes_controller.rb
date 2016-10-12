@@ -7,7 +7,6 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
   end
 
   def new
@@ -17,7 +16,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = Prototype.new(prototype_params)
+    @prototype = current_user.prototypes.new(prototype_params)
     if @prototype.save
       redirect_to root_path, notice: 'Your post prototype successfuly.'
     else
@@ -37,7 +36,6 @@ class PrototypesController < ApplicationController
 
   def prototype_params
     params.require(:prototype).permit(
-      :user_id,
       :title,
       :catchcopy,
       :concept,
