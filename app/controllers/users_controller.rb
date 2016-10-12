@@ -4,6 +4,7 @@ before_action :set_user, only: [:show, :edit, :update]
 before_action :authenticate_user!, only: [:edit, :update]
 
   def show
+    @prototypes = @user.prototypes.page(params[:page]).per(8)
   end
 
   def edit

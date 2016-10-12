@@ -1,17 +1,22 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index]
+  before_action :set_prototype, only: [:show]
 
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+  end
+
+  def show
   end
 
   def new
     @prototype = Prototype.new
-    3.times { @prototype.prototype_thumbnails.build }
+    @main_image = @prototype.prototype_thumbnails.build
+    @sub_images = 3.times{ @prototype.prototype_thumbnails.build }
   end
 
-def create
-    @prototype = Prototype.new(prototype_params)
+  def create
+    @prototype = current_user.prototypes.new(prototype_params)
     if @prototype.save
       redirect_to root_path, notice: 'Your post prototype successfuly.'
     else
