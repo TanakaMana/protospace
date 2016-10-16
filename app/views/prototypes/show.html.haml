@@ -15,6 +15,16 @@
     .col-md-6.text-right
   .row
     .col-md-9
+      - if user_signed_in? && @prototype.user_id == current_user.id
+        .dropdown.drop_menu_location
+          %button.btn.btn-default.dropdown-toggle{aria: {expanded: "false"}, data: {toggle: "dropdown"}, href: "#", role: "button", id: "dropdownMenu"}
+            Action
+            %span.caret
+          %ul.dropdown-menu{role: "menu"}
+            %li
+              = link_to 'Edit', edit_prototype_path(@prototype)
+            %li
+              = link_to 'Delete', @prototype, method: :delete
       = image_tag("sample.png", class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
