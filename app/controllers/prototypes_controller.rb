@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index]
-  before_action :set_prototype, only: [:show]
+  before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(5)
@@ -22,6 +22,22 @@ class PrototypesController < ApplicationController
     else
       redirect_to new_prototype_path, alert: 'Your post prototype infomation is not enough'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @prototype.update(prototype_params)
+    redirect_to prototype_path, notice: 'Prototype was successfully updated.'
+    else
+    redirect_to edit_prototype_path, alert: 'Prototype was not successfully updated.'
+    end
+  end
+
+  def destroy
+    @prototype.destroy
+    redirect_to root_path, notice: 'Prototype was successfully deleted.'
   end
 
   private
