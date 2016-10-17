@@ -29,9 +29,9 @@ class PrototypesController < ApplicationController
 
   def update
     if @prototype.update(prototype_params)
-    redirect_to prototype_path, notice: 'Prototype was successfully updated.'
+      redirect_to prototype_path, notice: 'Prototype was successfully updated.'
     else
-    redirect_to edit_prototype_path, alert: 'Prototype was not successfully updated.'
+      redirect_to edit_prototype_path, alert: 'Prototype was not successfully updated.'
     end
   end
 
