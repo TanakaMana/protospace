@@ -12,12 +12,14 @@
             %span.degree
             = @prototype.user.profile
 
-    .col-md-6.text-right
+    .col-md-6.text-right#like-buttons
+      = render partial: "likes/like", locals: { prototype: @prototype, like: @like }
+
   .row
     .col-md-9
       - if user_signed_in? && @prototype.user_id == current_user.id
         .dropdown.drop_menu_location
-          %button.btn.btn-default.dropdown-toggle{ aria: {expanded: "false" }, data: { toggle: "dropdown" }, href: "#", role: "button", id: "dropdownMenu" }
+          %button.btn.btn-default.dropdown-toggle{ aria: { expanded: "false" }, data: { toggle: "dropdown" }, href: "#", role: "button", id: "dropdownMenu" }
             Action
             %span.caret
           %ul.dropdown-menu{ role: "menu" }
@@ -35,11 +37,11 @@
     .col-md-3
       %h4 Catch Copy
       %p
-      = @prototype.catchcopy
+        = @prototype.catchcopy
     .col-md-6
       %h4 Concept
       %p
-      = @prototype.concept
+        = @prototype.concept
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
@@ -47,3 +49,25 @@
           = link_to "iPad", '#', class: "btn btn-default"
         %li
           = link_to "wireframe", '#', class: "btn btn-default"
+  .row.proto-comments
+    %h4.col-md-12
+      Comments
+      %span#comments-count
+      = "( #{ @prototype.comments.count } )"
+      .col-md-8
+        #js-comments
+          = render partial: 'comments/comment', collection: @comments
+        .form-inline
+          - if user_signed_in?
+            = form_for [@prototype, @comment], remote: true do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              = f.hidden_field :prototype_id, value: @prototype.id
+              %h4 Write a comment
+              .row
+                .form-group.col-md-10
+                  = f.text_area :content, placeholder: "Your comments", class: "form-control", rows: "3"
+                .form-group.col-md-2
+                  = f.submit "Comment", class: 'button btn btn-primary'
+
+
+
