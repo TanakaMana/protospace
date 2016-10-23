@@ -1,0 +1,10 @@
+.media
+  .media-left
+    %img.media-object
+    = link_to image_tag(comment.user.image,size: "64x64", alt: "64x64"), user_path(comment.user)
+  .media-body
+    %h4#top-aligned-media.media-heading
+      = comment.user.name
+    %p
+      = comment.content
+
