@@ -11,5 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
-
-app/assets/images/icon_herat_red.svg
+*.svg
+*.png
+*.jpg
+*.jpeg

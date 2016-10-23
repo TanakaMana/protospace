@@ -1,23 +1,21 @@
 .col-sm-4.col-md-3.proto-content
-  - if user_signed_in? && prototype.user_id == current_user.id
+  - if user_signed_in? && current_user.id == prototype.user_id
     .dropdown.drop_menu_location
-      %button.btn.btn-default.dropdown-toggle{ aria: {expanded: "false" }, data: { toggle: "dropdown" }, href: "#", role: "button", id: "dropdownMenu" }
-        Action
-        %span.caret
-      %ul.dropdown-menu{ role: "menu" }
+      %button.btn.btn-default{ id: "dropdownMenu", type: "button",  data: { toggle: "dropdown" } } ACTION
+      %ul.dropdown-menu{ aria: {labelledby: "dropdownMenu1"} }
         %li
-          = link_to 'Edit', edit_prototype_path(prototype)
+          =link_to "Delete", prototype_path(prototype), rel: "nofollow", data: {method: "delete"}
         %li
-          = link_to 'Delete', prototype, method: :delete
-    = image_tag("sample.png", class: 'img-responsive')
-  .thumbnail
-    %a{ href: "" }
-      .caption
-        %h3
-          = link_to prototype.title, prototype_path(prototype.id)
-        .proto-meta
-          .proto-user
-            = link_to "by #{ prototype.user.name }", user_path(prototype.user.id)
-          .proto-posted
-            = prototype.created_at.strftime('%b %d')
-        %ul.proto-tag-list.list-inline
+          =link_to "Edit", edit_prototype_path(prototype)
+  .thumbnail#content
+    - if prototype.prototype_thumbnails.main.present?
+      = link_to prototype_path(prototype) do
+        = image_tag(prototype.prototype_thumbnails.main.first.image)
+    .caption
+      %h3
+        = prototype.title
+      .proto-meta
+        .proto-user
+          = link_to "by #{prototype.user.name}", user_path(prototype.user)
+        .proto-posted
+          = prototype.created_at.strftime("%b %d")
