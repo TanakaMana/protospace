@@ -58,7 +58,7 @@ class PrototypesController < ApplicationController
       :title,
       :catchcopy,
       :concept,
-      thumbnail_attributes: [:id, :image, :state]
+      prototype_thumbnails_attributes: [:id, :image, :state]
     )
   end
 end
