@@ -559,6 +559,12 @@ body {
     padding: 20px;
     border-radius: 3px;
 }
+
+li {
+margin-left:0px;
+list-style-type: none;
+}
+
 /*-- image preview --------------------------------------------- */
 .image-preview {
   position: absolute;
@@ -580,4 +586,8 @@ body {
 
 footer {
   text-align: center;
+}
+
+.caption {
+  height: 13vh;
 }
