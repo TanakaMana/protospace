@@ -551,19 +551,6 @@ body {
   height: 10px;
   text-align: center;
 }
-
-.tags-list li a {
-  color : #337ab7;
-  display: block;
-  text-align: left;
-  padding: 20px;
-  border-radius: 3px;
-}
-
-li {
-  margin-left: 0px;
-  list-style-type: none;
-}
 /*-- image preview --------------------------------------------- */
 .image-preview {
   position: absolute;
@@ -585,8 +572,4 @@ li {
 
 footer {
   text-align: center;
-}
-
-.caption {
-  height: 13vh;
 }
