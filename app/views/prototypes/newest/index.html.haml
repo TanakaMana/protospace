@@ -10,10 +10,12 @@
           = link_to 'Popular PROTO', popular_index_path
         %li.active{ role: "presentation" }
           = link_to 'Newest PROTO', newest_index_path
-      = button_tag 'View Tags', class: "btn btn-default col-lg-1"
+      = link_to "View Tags", tags_path, class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
     = render partial: "prototypes/prototype", collection: @prototypes
 .text-center
-  = paginate(@prototypes)
+  %ul.pagination
+    %li.disabled
+      = paginate(@prototypes)
