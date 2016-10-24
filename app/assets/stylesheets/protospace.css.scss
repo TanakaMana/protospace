@@ -551,6 +551,14 @@ body {
   height: 10px;
   text-align: center;
 }
+
+.tags-list li a {
+    color : #337ab7;
+    display: block;
+    text-align: left;
+    padding: 20px;
+    border-radius: 3px;
+}
 /*-- image preview --------------------------------------------- */
 .image-preview {
   position: absolute;
