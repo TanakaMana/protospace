@@ -5,9 +5,6 @@ class Prototype < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  acts_as_taggable
-  acts_as_taggable_on :prototypes
-
   validates_presence_of :title, :catchcopy, :concept
 
   def reject_sub_images(attributes)

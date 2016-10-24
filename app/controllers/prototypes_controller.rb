@@ -59,8 +59,6 @@ class PrototypesController < ApplicationController
       :catchcopy,
       :concept,
       prototype_thumbnails_attributes: [:id, :image, :state]
-    ).merge(
-      tag_list: params[:prototype][:tag]
     )
   end
 end

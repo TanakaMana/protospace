@@ -10,6 +10,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :popular, only: :index
     resources :newest, only: :index
-    resources :tags, only: [:index, :show]
   end
 end
