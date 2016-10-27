@@ -7,9 +7,9 @@
           .user-name_image.row
             .user-name.col-md-10
               = f.text_field :name, placeholder: "Username"
-            .user-image.col-md-2
+            .user-image.col-md-2.js-image-preview{ style: "background-image: url(#{ current_user.image });" }
               %button.btn.btn-primary Change image
-              = f.text_field :image
+              = f.file_field :image
           .user-name.col-md-10
           = f.email_field :email, placeholder: "E-Mail"
         .col-md-12
