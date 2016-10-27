@@ -1,4 +1,4 @@
-.container.proto-new{action: ""}
+.container.proto-new{ action: "" }
   = form_for @prototype do |f|
     = f.hidden_field :user_id, value: current_user.id
     .col-md-8.col-md-offset-2
@@ -7,15 +7,15 @@
           = f.text_field :title, placeholder: "Title"
       .row
         .col-md-12
-          .cover-image-upload.js-preview-image
-            = f.fields_for :proto_thumbnails, @main_image do |thumbnail|
+          .cover-image-upload.js-image-preview
+            = f.fields_for :prototype_thumbnails, @main_image do |thumbnail|
               = thumbnail.file_field :image
               = thumbnail.hidden_field :state, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
             - 3.times do
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.js-image-preview
                   = f.fields_for :prototype_thumbnails, @sub_images do |thumbnail|
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :state, value: "sub"

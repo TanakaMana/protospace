@@ -7,7 +7,7 @@
           = f.text_field :title, placeholder: "Title"
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload.js-image-preview
             = f.fields_for :prototype_thumbnails, @main_image do |thumbnail|
               = thumbnail.file_field :image
               = thumbnail.hidden_field :state, value: "main"
@@ -15,7 +15,7 @@
           %ul.proto-sub-list.list-group
             - 3.times do
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.js-image-preview
                   = f.fields_for :prototype_thumbnails, @sub_images do |thumbnail|
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :state, value: "sub"
