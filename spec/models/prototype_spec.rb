@@ -8,6 +8,7 @@ describe Prototype do
       expect(prototype.user).to eq user
     end
   end
+
   describe 'with likes' do
     it "likes_count" do
       user = create(:user)
@@ -55,6 +56,7 @@ describe Prototype do
         expect(prototype.like_user(user)).to be_truthy
       end
     end
+
     context 'when not like a user' do
       it "return nil" do
         user = create(:user)
