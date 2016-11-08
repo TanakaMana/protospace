@@ -14,7 +14,7 @@ feature 'User management' do
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
-  scenario 'Sign up and posting a new prototype' do
+  scenario 'Sign in and posting a new prototype' do
     user = build(:user)
     prototype = build(:prototype)
     visit root_path
