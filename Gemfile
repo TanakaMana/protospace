@@ -36,9 +36,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
-  gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
-  gem "factory_girl_rails"  #テストデータを作成する
-  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -50,10 +50,10 @@ group :development do
 end
 
 group :test do
-  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
-  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
-  gem "launchy"             #テストのデバック用
-  gem "poltergeist"         #capybaraのためのドライバ
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
 end
 
 gem 'haml-rails'
