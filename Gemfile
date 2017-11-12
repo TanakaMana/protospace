@@ -60,6 +60,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'carrierwave'
-gem 'fog'
+# S3利用停止のためコメントアウト
+# gem 'fog'
 gem 'kaminari'
 gem 'acts-as-taggable-on'
