@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  # S3利用停止のためコメンオアウト
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
