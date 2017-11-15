@@ -5,6 +5,8 @@ protospace
 プロトタイプ共有アプリケーション
 
 デモURL：https://tnmn-protospace.herokuapp.com/
+デモ用アカウント：test@gmail.com, testtest
+
 Ruby 2.3.1
 Rails 4.2.5
 
