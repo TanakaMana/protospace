@@ -20,6 +20,8 @@ set :default_stage, "staging"
 # bundler
 set :bundle_env_variables, { 'NOKOGIRI_USE_SYSTEM_LIBRARIES' => 1 }
 
+set :log_level, :debug
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
