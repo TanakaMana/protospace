@@ -1,3 +1,4 @@
+set :stage, :production
 set :application, 'protospace'
 set :branch, 'master'
 set :deploy_to, '/var/www/protospace'

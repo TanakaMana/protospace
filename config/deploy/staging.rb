@@ -1,3 +1,4 @@
+set :stage, :staging
 set :application, 'staging'
 set :branch, 'staging'
 set :deploy_to, '/var/www/staging'
