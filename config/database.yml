@@ -54,9 +54,9 @@ production:
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
-# staging:
-#   <<: *default
-#   database: protospace_production
-#   username: protospace
-#   password: <%= ENV['PROTOSPACE_DATABASE_PASSWORD'] %>
-  # socket: /var/lib/mysql/mysql.sock
+staging:
+  <<: *default
+  database: protospace_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
