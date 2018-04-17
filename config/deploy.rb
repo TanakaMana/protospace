@@ -22,6 +22,24 @@ set :bundle_env_variables, { 'NOKOGIRI_USE_SYSTEM_LIBRARIES' => 1 }
 
 set :log_level, :debug
 
+task :staging do
+  set :domain,      "staging.tnmn.work"
+  set :rails_env,   :staging
+
+  role :app, domain
+  role :web, domain
+  role :db,  domain, :primary => true
+end
+
+task :production do
+  set :domain,      "www.tnmn.work"
+  set :rails_env,   :production
+
+  role :app, domain
+  role :web, domain
+  role :db,  domain, :primary => true
+end
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
