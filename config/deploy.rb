@@ -22,9 +22,18 @@ set :bundle_env_variables, { 'NOKOGIRI_USE_SYSTEM_LIBRARIES' => 1 }
 
 set :log_level, :debug
 
-after 'deploy:publishing', 'deploy:restart'
+# after 'deploy:publishing', 'deploy:restart'
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:restart'
+#   end
+# end
+
 namespace :deploy do
+  desc 'Restart application'
   task :restart do
-    invoke 'unicorn:restart'
-  end
+ end
+
+ after :publishing, 'deploy:restart'
+
 end
