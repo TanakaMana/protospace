@@ -17,6 +17,9 @@ set :keep_releases, 5
 set :stages, %(production, staging)
 set :default_stage, "staging"
 
+# bundler
+set :bundle_env_variables, { nokogiri_use_system_libraries: 1 }
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
