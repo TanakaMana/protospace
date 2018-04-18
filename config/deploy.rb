@@ -24,13 +24,6 @@ set :log_level, :debug
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  task :start, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec unicorn_rails -c config/unicorn.rb -E #{rails_env} -D"
-  end
-
-  task :stop, roles: :app, except: { no_release: true } do
-    run "kill -KILL -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
-  end
   task :restart do
     invoke 'unicorn:restart'
   end
